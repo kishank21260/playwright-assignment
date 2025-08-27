@@ -1,0 +1,6 @@
+tasks:
+  - init: npm install && npx playwright install
+    command: npx playwright test
+ports:
+  - port: 3000
+    onOpen: open-preview
