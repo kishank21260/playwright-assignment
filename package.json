@@ -1,0 +1,12 @@
+{
+  "name": "playwright-assignment",
+  "version": "1.0.0",
+  "description": "LambdaTest Playwright 102 Assignment",
+  "main": "test.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
