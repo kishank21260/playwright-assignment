@@ -1,0 +1,26 @@
+version: "0.1"
+runType: tests
+concurrency: 2
+retryOnFailure: true
+maxRetries: 1
+timeout: 1800
+preSteps:
+  - name: Install Dependencies
+    commands:
+      - npm install
+      - npx playwright install
+cacheDirs:
+  - "~/.npm"
+  - "~/.cache/playwright"
+env:
+  LT_USERNAME: ${{ secrets.LT_USERNAME }}
+  LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+postSteps:
+  - name: Generate Report
+    commands:
+      - npx playwright show-report
+uploadArtefacts:
+  - name: Reports
+    path:
+      - playwright-report/**
+      - test-results/**
